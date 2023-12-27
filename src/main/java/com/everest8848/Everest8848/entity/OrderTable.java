@@ -30,6 +30,20 @@ public class OrderTable {
     @ManyToOne(targetEntity = User.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "userId", referencedColumnName = "id")
     private User user;
+   @ManyToMany(cascade = CascadeType.ALL)
+   @JoinTable(name="product_order_map",
+           joinColumns = @JoinColumn(
+                   name = "order_id",
+                   referencedColumnName = "orderId"
+           ),
+           inverseJoinColumns = @JoinColumn(
+                   name = "product_id",
+                   referencedColumnName = "id"
+           )
+
+
+   )
+    private List<Product> product;
 
 
 }

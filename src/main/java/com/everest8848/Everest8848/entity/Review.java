@@ -25,7 +25,8 @@ public class Review {
 @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
 
-
+@ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
+@JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;
 
 }
