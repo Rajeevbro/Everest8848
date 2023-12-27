@@ -21,12 +21,11 @@ public class Review {
     private Enum<Stars>star;
     private String comments;
 
-    @ManyToOne(cascade = CascadeType.ALL,optional = false)
-    @JoinColumn(name="product_id",referencedColumnName = "id")
-    private Long productId;
+@ManyToOne(targetEntity = Product.class,cascade = CascadeType.ALL)
+@JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product product;
 
-    @ManyToOne(cascade = CascadeType.ALL,optional = false)
-    @JoinColumn(name = "user_id",referencedColumnName = "id")
-    private Long userId;
+
+    private User user;
 
 }
